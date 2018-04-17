@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-
-import './Hello.css'
+import { DumbHello } from './DumbHello';
 
 export class Hello extends Component {
-
   state = {
     who: this.props.who,
   };
@@ -19,10 +17,7 @@ export class Hello extends Component {
   render() {
     const { who } = this.state;
     return (
-      <div className="hello-container">   
-        <span className="hello">Hello {who}</span>
-        <input value={who} onChange={this.onWhoChange} type="text"/>
-      </div>   
+      <DumbHello who={who} onWhoChange={this.onWhoChange}/>   
     );
   }
 }
