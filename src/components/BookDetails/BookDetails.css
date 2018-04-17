@@ -1,0 +1,22 @@
+.book-details-form .form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+}
+.book-details-form .form-group label {
+  flex: 2;
+  margin: 0px;
+}
+.book-details-form .form-group input {
+  flex: 10;
+}
+.book-details-form label {
+  font-weight: bold;
+}
+
+@media(max-width: 700px) {
+  .book-details-form .form-group {
+    display: block;
+  }
+}
