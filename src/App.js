@@ -1,24 +1,14 @@
 import React, { Component } from 'react';
+import { HelloWorld } from './components/HelloWorld'
 import './App.css';
 
-class App extends Component {
-
+export class App extends Component {
 
   render() {
     return (
         <div className="book-app">
-          <span className="hello">
-            Hello World
-          </span>
+          <HelloWorld></HelloWorld>
         </div>
       );
-      
-    // return React.createElement('div', {className: 'book-app'},
-    //   React.createElement('span', {className: 'hello'}, 
-    //     'Hello World'
-    //   ),
-    // );
   }
 }
-
-export default App;
