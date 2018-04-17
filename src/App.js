@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { HelloWorld } from './components/HelloWorld'
+import { Hello } from './components/Hello';
 import './App.css';
 
+
 export class App extends Component {
+  
+  world = 'World';
 
   render() {
     return (
         <div className="book-app">
-          <HelloWorld></HelloWorld>
+          <Hello who={this.world}></Hello>
         </div>
       );
   }
