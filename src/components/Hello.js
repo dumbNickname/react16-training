@@ -9,13 +9,15 @@ export class Hello extends Component {
     this.state = {
       who: props.who,
     };
+    this.onWhoChange = this.onWhoChange.bind(this);
   }
 
   onWhoChange(e) {
     e.preventDefault();
-    this.setState({
-        who: e.target.value,
-    });
+    const who = e.target.value;
+    this.setState((prevState, props) => ({
+        who,
+    }));
   }
 
   render() {
@@ -23,7 +25,7 @@ export class Hello extends Component {
     return (
       <div className="hello-container">   
         <span className="hello">Hello {who}</span>
-        <input value={who} onChange={(e) => this.onWhoChange(e)} type="text"/>
+        <input value={who} onChange={this.onWhoChange} type="text"/>
       </div>   
     );
   }
