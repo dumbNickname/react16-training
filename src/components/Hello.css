@@ -1,0 +1,9 @@
+.hello-container {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-rows: 2fr 1fr; 
+}
+
+.hello-container .hello {
+  font-size: 24px;
+}
