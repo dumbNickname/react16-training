@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BookDetails } from './components/BookDetails';
+import { BookOverview } from './components/BookOverview';
 import './App.css';
 
 
@@ -10,7 +10,7 @@ export class App extends Component {
   render() {
     return (
         <div className="book-app">
-          <BookDetails/>
+          <BookOverview/>
         </div>
       );
   }

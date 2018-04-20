@@ -4,7 +4,10 @@ import { BookDetailsDumb } from './BookDetailsDumb';
 
 export class BookDetails extends Component {
   state = {
-    book: { authors: '', title: '' },
+    book: this.props.book || { 
+      authors: '',
+      title: ''
+    },
   }
 
   onAuthorsChange = (e) => {
@@ -23,7 +26,7 @@ export class BookDetails extends Component {
 
   render() {
     return (
-      <BookDetailsDumb 
+      <BookDetailsDumb
         book={this.state.book} 
         onAuthorsChange={this.onAuthorsChange} 
         onTitleChange={this.onTitleChange} 
