@@ -2,6 +2,7 @@ import React from "react";
 
 import { FormGroup } from '../FormGroup';
 import { withDiscoEffect } from '../withDiscoEffect';
+import { WithBetterDiscoEffect } from '../withBetterDiscoEffect';
 import './BookDetails.css';
 
 
@@ -14,6 +15,7 @@ export const BookDetailsDumb = ({
 }) => (
   <div>
     <form className="book-details-form">
+ 
       <DiscoFormGroup>
         <label htmlFor="authors">Authors:</label>
         <input
@@ -25,16 +27,19 @@ export const BookDetailsDumb = ({
         />
       </DiscoFormGroup>
 
-      <FormGroup>
-        <label htmlFor="title">Title:</label>
-        <input
-          value={book.title}
-          onChange={onTitleChange}
-          id="title"
-          className="form-control"
-          type="text"
-        />
-      </FormGroup>
+      <WithBetterDiscoEffect render={({bgColor, fontColor}) => (
+        <FormGroup bgColor={bgColor} fontColor={fontColor}>
+          <label htmlFor="title">Title:</label>
+          <input
+            value={book.title}
+            onChange={onTitleChange}
+            id="title"
+            className="form-control"
+            type="text"
+            />
+        </FormGroup>
+      )}>
+      </WithBetterDiscoEffect>
     </form>
     <pre>
       <span>Current Values:</span>

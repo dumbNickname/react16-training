@@ -1,12 +1,6 @@
 import React from 'react';
 
-function getRandomColor() {
-  const hexBase = '0123456789ABCDEF';  
-  const hexColor = [...Array(6)]
-    .map(() => hexBase[Math.floor(Math.random() * hexBase.length)])
-    .join('');
-  return `#${hexColor}`;
-}
+import { getRandomColor, fontColorFor } from '../services/ramdomizer';
 
 export function withDiscoEffect(WrappedComponent) {
   return class extends React.Component {
@@ -31,9 +25,7 @@ export function withDiscoEffect(WrappedComponent) {
         innerWidth: window.innerWidth,
         innerHeight: window.innerHeight,
         bgColor: randomColor,
-        fontColor: (randomColor.replace('#', '0x')) > (0xffffff / 2)
-          ? '#333'
-          : '#fff'
+        fontColor: fontColorFor(randomColor),
       });
     }
 
