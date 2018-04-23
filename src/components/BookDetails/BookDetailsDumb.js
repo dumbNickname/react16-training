@@ -1,5 +1,6 @@
 import React from "react";
 
+import { FormGroup } from '../FormGroup';
 import './BookDetails.css';
 
 export const BookDetailsDumb = ({ 
@@ -9,7 +10,7 @@ export const BookDetailsDumb = ({
 }) => (
   <div>
     <form className="book-details-form">
-      <div className="form-group">
+      <FormGroup>
         <label htmlFor="authors">Authors:</label>
         <input
           value={book.authors}
@@ -18,9 +19,9 @@ export const BookDetailsDumb = ({
           className="form-control"
           type="text"
         />
-      </div>
+      </FormGroup>
 
-      <div className="form-group">
+      <FormGroup>
         <label htmlFor="title">Title:</label>
         <input
           value={book.title}
@@ -29,7 +30,7 @@ export const BookDetailsDumb = ({
           className="form-control"
           type="text"
         />
-      </div>
+      </FormGroup>
     </form>
     <pre>
       <span>Current Values:</span>
