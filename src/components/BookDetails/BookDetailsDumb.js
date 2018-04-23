@@ -1,11 +1,9 @@
 import React from "react";
 
 import { FormGroup } from '../FormGroup';
-import { withDiscoEffect } from '../withDiscoEffect';
+import { WithBetterDiscoEffect as WithDiscoEffect } from '../withBetterDiscoEffect';
 import './BookDetails.css';
 
-
-const DiscoFormGroup = withDiscoEffect(FormGroup);
 
 export const BookDetailsDumb = ({ 
   book, 
@@ -14,16 +12,19 @@ export const BookDetailsDumb = ({
 }) => (
   <div>
     <form className="book-details-form">
-      <DiscoFormGroup>
-        <label htmlFor="authors">Authors:</label>
-        <input
-          value={book.authors}
-          onChange={onAuthorsChange}
-          id="authors"
-          className="form-control"
-          type="text"
-        />
-      </DiscoFormGroup>
+      <WithDiscoEffect render={({bgColor, fontColor}) => (
+        <FormGroup bgColor={bgColor} fontColor={fontColor}>
+          <label htmlFor="authors">Authors:</label>
+          <input
+            value={book.authors}
+            onChange={onAuthorsChange}
+            id="authors"
+            className="form-control"
+            type="text"
+          />
+        </FormGroup>
+      )}>
+      </WithDiscoEffect>
 
       <FormGroup>
         <label htmlFor="title">Title:</label>
