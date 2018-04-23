@@ -1,7 +1,11 @@
 import React from "react";
 
 import { FormGroup } from '../FormGroup';
+import { withDiscoEffect } from '../withDiscoEffect';
 import './BookDetails.css';
+
+
+const DiscoFormGroup = withDiscoEffect(FormGroup);
 
 export const BookDetailsDumb = ({ 
   book, 
@@ -10,7 +14,7 @@ export const BookDetailsDumb = ({
 }) => (
   <div>
     <form className="book-details-form">
-      <FormGroup>
+      <DiscoFormGroup>
         <label htmlFor="authors">Authors:</label>
         <input
           value={book.authors}
@@ -19,7 +23,7 @@ export const BookDetailsDumb = ({
           className="form-control"
           type="text"
         />
-      </FormGroup>
+      </DiscoFormGroup>
 
       <FormGroup>
         <label htmlFor="title">Title:</label>
