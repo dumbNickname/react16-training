@@ -4,15 +4,11 @@ import './Hello.css'
 
 export class Hello extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      who: props.who,
-    };
-    this.onWhoChange = this.onWhoChange.bind(this);
-  }
+  state = {
+    who: this.props.who,
+  };
 
-  onWhoChange(e) {
+  onWhoChange = (e) => {
     e.preventDefault();
     const who = e.target.value;
     this.setState((prevState, props) => ({
