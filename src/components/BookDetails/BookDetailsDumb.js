@@ -12,18 +12,19 @@ export const BookDetailsDumb = ({
 }) => (
   <div>
     <form className="book-details-form">
-      <WithDiscoEffect render={({bgColor, fontColor}) => (
-        <FormGroup bgColor={bgColor} fontColor={fontColor}>
-          <label htmlFor="authors">Authors:</label>
-          <input
-            value={book.authors}
-            onChange={onAuthorsChange}
-            id="authors"
-            className="form-control"
-            type="text"
-          />
-        </FormGroup>
-      )}>
+      <WithDiscoEffect>
+        {({bgColor, fontColor}) => (
+          <FormGroup bgColor={bgColor} fontColor={fontColor}>
+            <label htmlFor="authors">Authors:</label>
+            <input
+              value={book.authors}
+              onChange={onAuthorsChange}
+              id="authors"
+              className="form-control"
+              type="text"
+            />
+          </FormGroup>
+        )}
       </WithDiscoEffect>
 
       <FormGroup>
