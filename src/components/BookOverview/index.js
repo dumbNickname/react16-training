@@ -9,12 +9,30 @@ export class BookOverview extends Component {
       {id: 1, authors: 'a1', title: 't1'},
       {id: 2, authors: 'a2', title: 't2'},
     ],
-    selectedBookIndex: -1, 
+    selectedBookIndex: -1,
+    selectedBook: null,
   };
 
   onBookSelect = (i) => {
-    this.setState({
+    this.setState(prevState => ({
       selectedBookIndex: i,
+      selectedBook: prevState.books[i],
+    }));
+  }
+
+  onBookChange = (updatedBook) => {
+    this.setState(prevState => ({
+      selectedBook: { ...prevState.selectedBook, ...updatedBook },
+    }));
+  }
+
+  onBookSave = () => {
+    this.setState(prevState => {
+      const books = [...prevState.books];
+      books[prevState.selectedBookIndex] = prevState.selectedBook;
+      return {
+        books,
+      };
     });
   }
 
@@ -22,8 +40,10 @@ export class BookOverview extends Component {
     return (
       <BookOverviewDumb 
         books={this.state.books}
-        currentBook={this.state.books[this.state.selectedBookIndex]}
+        currentBook={this.state.selectedBook}
         onBookSelect={this.onBookSelect}
+        onBookChange={this.onBookChange}
+        onBookSave={this.onBookSave}
       />
     );
   }
