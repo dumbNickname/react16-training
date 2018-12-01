@@ -5,10 +5,7 @@ import { BookOverviewDumb } from './BookOverviewDumb';
 export class BookOverview extends Component {
 
   state = {
-    books: [
-      {id: 1, authors: 'a1', title: 't1'},
-      {id: 2, authors: 'a2', title: 't2'},
-    ],
+    books: this.props.books || [],
     selectedBookIndex: -1,
     selectedBook: null,
   };
