@@ -11,7 +11,8 @@ const DiscoFormGroup = withDiscoEffect(FormGroup);
 export const BookDetailsDumb = ({ 
   book, 
   onAuthorsChange, 
-  onTitleChange 
+  onTitleChange,
+  onBookSave,
 }) => (
   <div>
     <form className="book-details-form">
@@ -41,6 +42,8 @@ export const BookDetailsDumb = ({
           </FormGroup>
         )}
       </WithBetterDiscoEffect>
+      
+      <button type="button" onClick={() => onBookSave(book)}>Save Book</button>
     </form>
     <pre>
       <span>Current Values:</span>

@@ -25,11 +25,15 @@ export class BookDetails extends Component {
   }
 
   render() {
+    const { book } = this.state;
+    const { onBookSave } = this.props;
+
     return (
       <BookDetailsDumb
-        book={this.state.book} 
+        book={book} 
         onAuthorsChange={this.onAuthorsChange} 
         onTitleChange={this.onTitleChange} 
+        onBookSave={onBookSave}
       />
     );
   }

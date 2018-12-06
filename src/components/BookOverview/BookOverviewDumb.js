@@ -11,6 +11,7 @@ export const BookOverviewDumb = ({
   books,
   currentBook,
   onBookSelect,
+  onBookSave,
 }) => (
   <section className="book-overview">
     <table className="table table-hover">
@@ -37,7 +38,7 @@ export const BookOverviewDumb = ({
       </tbody>
     </table>
     {(currentBook) && 
-      <BookDetails book={currentBook} key={currentBook.id}/>
+      <BookDetails book={currentBook} key={currentBook.id} onBookSave={onBookSave}/>
     }
   </section>
 );
