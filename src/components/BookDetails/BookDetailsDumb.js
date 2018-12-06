@@ -27,18 +27,19 @@ export const BookDetailsDumb = ({
         />
       </DiscoFormGroup>
 
-      <WithBetterDiscoEffect render={({bgColor, fontColor}) => (
-        <FormGroup bgColor={bgColor} fontColor={fontColor}>
-          <label htmlFor="title">Title:</label>
-          <input
-            value={book.title}
-            onChange={onTitleChange}
-            id="title"
-            className="form-control"
-            type="text"
+      <WithBetterDiscoEffect>
+        {({bgColor, fontColor}) => (
+          <FormGroup bgColor={bgColor} fontColor={fontColor}>
+            <label htmlFor="title">Title:</label>
+            <input
+              value={book.title}
+              onChange={onTitleChange}
+              id="title"
+              className="form-control"
+              type="text"
             />
-        </FormGroup>
-      )}>
+          </FormGroup>
+        )}
       </WithBetterDiscoEffect>
     </form>
     <pre>

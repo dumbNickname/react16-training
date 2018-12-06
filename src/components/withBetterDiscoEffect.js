@@ -29,8 +29,8 @@ export class WithBetterDiscoEffect extends Component {
 }
 
   render() {
-    const { render, ...restProps } = this.props;
-    return render({
+    const { children, ...restProps } = this.props;
+    return children({
         ...this.state,
         ...restProps,
     });
