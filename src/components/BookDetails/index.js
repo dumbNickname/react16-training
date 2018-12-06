@@ -3,30 +3,23 @@ import React, { Component } from "react";
 import { BookDetailsDumb } from './BookDetailsDumb';
 
 export class BookDetails extends Component {
-  state = {
-    book: this.props.book || { 
-      authors: '',
-      title: ''
-    },
+
+  changeBook = (newBook) => {
+    this.props.onBookChange && this.props.onBookChange(newBook);
   }
 
   onAuthorsChange = (e) => {
     const authors = e.target.value;
-    this.setState((prevState, props) => ({
-      book: {...prevState.book, authors },
-    }));
+    this.changeBook({...this.props.book, authors });
   }
 
   onTitleChange = (e) => {
     const title = e.target.value;
-    this.setState((prevState, props) => ({
-      book: {...prevState.book, title },
-    }));
+    this.changeBook({...this.props.book, title });
   }
 
   render() {
-    const { book } = this.state;
-    const { onBookSave } = this.props;
+    const { book, onBookSave } = this.props;
 
     return (
       <BookDetailsDumb

@@ -11,6 +11,7 @@ export const BookOverviewDumb = ({
   books,
   currentBook,
   onBookSelect,
+  onBookChange,
   onBookSave,
 }) => (
   <section className="book-overview">
@@ -38,7 +39,11 @@ export const BookOverviewDumb = ({
       </tbody>
     </table>
     {(currentBook) && 
-      <BookDetails book={currentBook} key={currentBook.id} onBookSave={onBookSave}/>
+      <BookDetails key={currentBook.id}
+        book={currentBook}
+        onBookSave={onBookSave}
+        onBookChange={onBookChange}
+      />
     }
   </section>
 );
